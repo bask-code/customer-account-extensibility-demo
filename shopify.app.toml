@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "6ad8f30e89226f78442603a49ba19fb2"
+name = "Customer-account-bas"
+handle = "customer-account-bas"
+application_url = "https://valid-causes-news-harder.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "customer_read_customers,customer_read_orders,customer_write_customers,read_customers,read_orders,write_customers,write_orders, write_products, read_products"
+
+[auth]
+redirect_urls = [
+  "https://valid-causes-news-harder.trycloudflare.com/auth/callback",
+  "https://valid-causes-news-harder.trycloudflare.com/auth/shopify/callback",
+  "https://valid-causes-news-harder.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "bas-development.myshopify.com"
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
